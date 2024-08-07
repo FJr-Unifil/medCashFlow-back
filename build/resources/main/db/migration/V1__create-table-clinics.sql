@@ -1,0 +1,7 @@
+CREATE TABLE clinics (
+    id UUID PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
+    name VARCHAR(100) NOT NULL UNIQUE,
+    cnpj CHAR(14) NOT NULL UNIQUE,
+    phone CHAR(10) NOT NULL UNIQUE,
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
