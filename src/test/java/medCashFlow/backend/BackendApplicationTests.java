@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
@@ -61,6 +62,22 @@ class BackendApplicationTests {
 
 		Number pageNumber = documentContext.read("$.pageable.pageSize");
 		assertThat(pageNumber).isEqualTo(3);
+	}
+
+	@Test
+	void shouldDeleteAClinicById() {
+		ResponseEntity<String> response = testRestTemplate.exchange("/clinics/7220f08d-3b2c-43dc-b7c4-f9ec87f7375d", HttpMethod.DELETE, null, String.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+		assertThat(response.getBody()).isBlank();
+
+		ResponseEntity<String> request = testRestTemplate.getForEntity("/clinics/7220f08d-3b2c-43dc-b7c4-f9ec87f7375d", String.class);
+		assertThat(request.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+	}
+
+	@Test
+	void shouldNotDeleteAClinicThatDoNotExists() {
+		ResponseEntity<String> response = testRestTemplate.exchange("/clinics/5e387c7d-74d4-43f8-8cf7-010e2ed2e0b1", HttpMethod.DELETE, null, String.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 
 }

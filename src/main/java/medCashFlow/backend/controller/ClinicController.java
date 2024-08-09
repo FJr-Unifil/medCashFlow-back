@@ -7,10 +7,7 @@ import medCashFlow.backend.service.ClinicService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -37,5 +34,16 @@ public class ClinicController {
         Page<Clinic> clinicPage = service.returnAllClinics(pageable);
 
         return ResponseEntity.ok(clinicPage);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAClinicById(@PathVariable UUID id) {
+        ClinicResponseDTO clinicToBeDeleted = service.deleteAClinicById(id);
+
+        if (clinicToBeDeleted == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.noContent().build();
     }
 }

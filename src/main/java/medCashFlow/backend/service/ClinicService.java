@@ -27,4 +27,15 @@ public class ClinicService {
     public Page<Clinic> returnAllClinics(Pageable pageable) {
         return repository.findAllByActiveIsTrue(pageable);
     }
+
+    public ClinicResponseDTO deleteAClinicById(UUID id) {
+        var clinic = repository.findByIdAndActiveIsTrue(id).orElse(null);
+
+        if (clinic == null) return null;
+
+        clinic.setActive(false);
+        repository.save(clinic);
+
+        return new ClinicResponseDTO(clinic.getName(), clinic.getCnpj(), clinic.getPhone());
+    }
 }
