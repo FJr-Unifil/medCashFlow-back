@@ -1,6 +1,7 @@
 package medCashFlow.backend.service;
 
 import lombok.RequiredArgsConstructor;
+import medCashFlow.backend.dto.ClinicRequestDTO;
 import medCashFlow.backend.dto.ClinicResponseDTO;
 import medCashFlow.backend.model.Clinic;
 import medCashFlow.backend.repository.ClinicRepository;
@@ -15,6 +16,12 @@ import java.util.UUID;
 public class ClinicService {
 
     private final ClinicRepository repository;
+
+    public Clinic createAClinic(ClinicRequestDTO data) {
+        Clinic newClinic = new Clinic(data);
+
+        return repository.save(newClinic);
+    }
 
     public ClinicResponseDTO returnClinicById(UUID id) {
         var clinic = repository.findByIdAndActiveIsTrue(id).orElse(null);

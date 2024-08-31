@@ -1,0 +1,12 @@
+CREATE TABLE employees (
+    id BIGSERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    username VARCHAR(20) NOT NULL UNIQUE,
+    cpf CHAR(11) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT TRUE,
+    clinic_id UUID,
+    CONSTRAINT fk_clinic_id FOREIGN KEY (clinic_id) REFERENCES clinics(id)
+);

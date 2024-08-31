@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import medCashFlow.backend.dto.ClinicRequestDTO;
 
 import java.util.UUID;
 
@@ -32,4 +33,10 @@ public class Clinic {
     @Column(nullable = false)
     @Builder.Default
     private boolean active = true;
+
+    public Clinic(ClinicRequestDTO data) {
+        this.name = data.clinicName();
+        this.cnpj = data.cnpj();
+        this.phone = data.phone();
+    }
 }
