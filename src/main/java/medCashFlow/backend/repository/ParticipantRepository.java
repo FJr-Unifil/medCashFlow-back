@@ -1,6 +1,5 @@
 package medCashFlow.backend.repository;
 
-import medCashFlow.backend.model.Employee;
 import medCashFlow.backend.model.Participant;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,7 +10,7 @@ import java.util.UUID;
 
 public interface ParticipantRepository extends JpaRepository<Participant, Long> {
 
-    Optional<Participant> findByIdAndClinicIdAndActiveIsTrue(UUID clinicId, Long id);
+    Optional<Participant> findByClinic_IdAndIdAndActiveIsTrue(UUID clinicId, Long id);
 
-    Page<Participant> findAllByClinicIdAndActiveIsTrue(UUID clinicId, Pageable pageable);
+    Page<Participant> findAllByClinic_IdAndActiveIsTrue(UUID clinicId, Pageable pageable);
 }

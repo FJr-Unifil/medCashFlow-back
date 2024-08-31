@@ -18,7 +18,7 @@ public class ParticipantService {
     private final ParticipantRepository repository;
 
     public ParticipantResponseDTO returnParticipantById(UUID clinicId, Long id) {
-        var participant = repository.findByIdAndClinicIdAndActiveIsTrue(clinicId, id).orElse(null);
+        var participant = repository.findByClinic_IdAndIdAndActiveIsTrue(clinicId, id).orElse(null);
 
         if (participant == null) return null;
 
@@ -26,7 +26,7 @@ public class ParticipantService {
     }
 
     public Page<Participant> returnAllParticipants(UUID clnicId, Pageable pageable) {
-        return repository.findAllByClinicIdAndActiveIsTrue(clnicId,pageable);
+        return repository.findAllByClinic_IdAndActiveIsTrue(clnicId,pageable);
     }
 
     public Participant createAParticipant(UUID clinicId, ParticipantRequestDTO data) {
@@ -36,7 +36,7 @@ public class ParticipantService {
     }
 
     public Participant deleteAParticipantById(UUID clinicId, Long id) {
-        var participant = repository.findByIdAndClinicIdAndActiveIsTrue(clinicId, id).orElse(null);
+        var participant = repository.findByClinic_IdAndIdAndActiveIsTrue(clinicId, id).orElse(null);
 
         if (participant == null) return null;
 

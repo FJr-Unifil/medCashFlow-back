@@ -12,7 +12,9 @@ import java.util.UUID;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    Optional<Employee> findByIdAndClinicIdAndActiveIsTrue(UUID clinicId, Long id);
+    Optional<Employee> findByClinic_IdAndIdAndActiveIsTrue(UUID clinicId, Long id);
 
-    Page<Employee> findAllByClinicIdAndActiveIsTrue(UUID clinicId, Pageable pageable);
+    Optional<Employee>  findByEmailAndActiveIsTrue(String email);
+
+    Page<Employee> findAllByClinic_IdAndActiveIsTrue(UUID clinicId, Pageable pageable);
 }

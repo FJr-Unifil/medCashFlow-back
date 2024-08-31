@@ -30,6 +30,7 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public ResponseEntity<Page<Employee>> getAPageOfEmployees(@PathVariable UUID clinicId, Pageable pageable) {
         Page<Employee> employeePage = service.returnAllEmployees(clinicId, pageable);

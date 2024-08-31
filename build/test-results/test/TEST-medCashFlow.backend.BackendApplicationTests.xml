@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="medCashFlow.backend.BackendApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-09T18:23:11" hostname="Fernandos-MacBook-Pro.local" time="0.496">
+<testsuite name="medCashFlow.backend.BackendApplicationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-08-31T01:14:57" hostname="Fernandos-MacBook-Pro.local" time="0.552">
   <properties/>
-  <testcase name="shouldDeleteAClinicById()" classname="medCashFlow.backend.BackendApplicationTests" time="0.496"/>
-  <system-out><![CDATA[15:23:09.763 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [medCashFlow.backend.BackendApplicationTests]: BackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-15:23:09.823 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration medCashFlow.backend.BackendApplication for test class medCashFlow.backend.BackendApplicationTests
+  <testcase name="shouldReturnAClinic()" classname="medCashFlow.backend.BackendApplicationTests" time="0.552">
+    <failure message="org.opentest4j.AssertionFailedError: &#10;expected: 200 OK&#10; but was: 404 NOT_FOUND" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: 200 OK
+ but was: 404 NOT_FOUND
+	at java.base@17.0.11/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@17.0.11/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base@17.0.11/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@17.0.11/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at app//medCashFlow.backend.BackendApplicationTests.shouldReturnAClinic(BackendApplicationTests.java:26)
+	at java.base@17.0.11/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <system-out><![CDATA[22:14:55.149 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [medCashFlow.backend.BackendApplicationTests]: BackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:14:55.220 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration medCashFlow.backend.BackendApplication for test class medCashFlow.backend.BackendApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,37 +27,41 @@
 
  :: Spring Boot ::                (v3.3.2)
 
-2024-08-09T15:23:10.038-03:00  INFO 29280 --- [backend] [    Test worker] m.backend.BackendApplicationTests        : Starting BackendApplicationTests using Java 17.0.11 with PID 29280 (started by ferjunior7 in /Users/ferjunior7/Projects/medCashFlow-back)
-2024-08-09T15:23:10.038-03:00  INFO 29280 --- [backend] [    Test worker] m.backend.BackendApplicationTests        : The following 1 profile is active: "test"
-2024-08-09T15:23:10.332-03:00  INFO 29280 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-09T15:23:10.357-03:00  INFO 29280 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interface.
-2024-08-09T15:23:10.604-03:00  INFO 29280 --- [backend] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2024-08-09T15:23:10.612-03:00  INFO 29280 --- [backend] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-09T15:23:10.612-03:00  INFO 29280 --- [backend] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
-2024-08-09T15:23:10.651-03:00  INFO 29280 --- [backend] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-09T15:23:10.652-03:00  INFO 29280 --- [backend] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 604 ms
-2024-08-09T15:23:10.784-03:00  INFO 29280 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-09T15:23:10.865-03:00  INFO 29280 --- [backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27df5806
-2024-08-09T15:23:10.866-03:00  INFO 29280 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-09T15:23:10.888-03:00  INFO 29280 --- [backend] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/medcashflow_testdb (PostgreSQL 16.3)
-2024-08-09T15:23:10.914-03:00  INFO 29280 --- [backend] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.014s)
-2024-08-09T15:23:10.936-03:00  INFO 29280 --- [backend] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 1
-2024-08-09T15:23:10.938-03:00  INFO 29280 --- [backend] [    Test worker] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2024-08-09T15:23:10.986-03:00  INFO 29280 --- [backend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-09T15:23:11.019-03:00  INFO 29280 --- [backend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-08-09T15:23:11.036-03:00  INFO 29280 --- [backend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-09T15:23:11.180-03:00  INFO 29280 --- [backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-09T15:23:11.208-03:00  WARN 29280 --- [backend] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-09T15:23:11.584-03:00  INFO 29280 --- [backend] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-09T15:23:11.611-03:00  INFO 29280 --- [backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-09T15:23:11.753-03:00  WARN 29280 --- [backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-09T15:23:11.936-03:00  INFO 29280 --- [backend] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 55145 (http) with context path '/'
-2024-08-09T15:23:11.942-03:00  INFO 29280 --- [backend] [    Test worker] m.backend.BackendApplicationTests        : Started BackendApplicationTests in 2.043 seconds (process running for 2.77)
-2024-08-09T15:23:12.296-03:00  INFO 29280 --- [backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-09T15:23:12.296-03:00  INFO 29280 --- [backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-09T15:23:12.297-03:00  INFO 29280 --- [backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-Hibernate: select c1_0.id,c1_0.active,c1_0.cnpj,c1_0.name,c1_0.phone from clinics c1_0 where c1_0.id=? and c1_0.active
-Hibernate: update clinics set active=?,cnpj=?,name=?,phone=? where id=?
+2024-08-30T22:14:55.419-03:00  INFO 15251 --- [backend] [    Test worker] m.backend.BackendApplicationTests        : Starting BackendApplicationTests using Java 17.0.11 with PID 15251 (started by ferjunior7 in /Users/ferjunior7/Projects/medCashFlow-back)
+2024-08-30T22:14:55.420-03:00  INFO 15251 --- [backend] [    Test worker] m.backend.BackendApplicationTests        : The following 1 profile is active: "test"
+2024-08-30T22:14:55.715-03:00  INFO 15251 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-30T22:14:55.745-03:00  INFO 15251 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 3 JPA repository interfaces.
+2024-08-30T22:14:55.993-03:00  INFO 15251 --- [backend] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-08-30T22:14:56.001-03:00  INFO 15251 --- [backend] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-30T22:14:56.001-03:00  INFO 15251 --- [backend] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-30T22:14:56.038-03:00  INFO 15251 --- [backend] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-30T22:14:56.039-03:00  INFO 15251 --- [backend] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 609 ms
+2024-08-30T22:14:56.157-03:00  INFO 15251 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-30T22:14:56.245-03:00  INFO 15251 --- [backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@60928a61
+2024-08-30T22:14:56.246-03:00  INFO 15251 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-30T22:14:56.264-03:00  INFO 15251 --- [backend] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/medcashflow_testdb (PostgreSQL 16.3)
+2024-08-30T22:14:56.295-03:00  INFO 15251 --- [backend] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.017s)
+2024-08-30T22:14:56.313-03:00  INFO 15251 --- [backend] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 2
+2024-08-30T22:14:56.319-03:00  INFO 15251 --- [backend] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - create-table-participants"
+2024-08-30T22:14:56.346-03:00  INFO 15251 --- [backend] [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v3 (execution time 00:00.018s)
+2024-08-30T22:14:56.392-03:00  INFO 15251 --- [backend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-30T22:14:56.423-03:00  INFO 15251 --- [backend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-30T22:14:56.441-03:00  INFO 15251 --- [backend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-30T22:14:56.587-03:00  INFO 15251 --- [backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-30T22:14:56.616-03:00  WARN 15251 --- [backend] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-30T22:14:57.038-03:00  INFO 15251 --- [backend] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: alter table if exists participants alter column email set data type varchar(255)
+Hibernate: alter table if exists participants alter column identity set data type varchar(255)
+Hibernate: alter table if exists participants alter column name set data type varchar(255)
+Hibernate: alter table if exists participants alter column phone set data type varchar(255)
+Hibernate: create sequence participants_seq start with 1 increment by 50
+2024-08-30T22:14:57.097-03:00  INFO 15251 --- [backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-30T22:14:57.268-03:00  WARN 15251 --- [backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-30T22:14:57.458-03:00  INFO 15251 --- [backend] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 53099 (http) with context path '/'
+2024-08-30T22:14:57.463-03:00  INFO 15251 --- [backend] [    Test worker] m.backend.BackendApplicationTests        : Started BackendApplicationTests in 2.177 seconds (process running for 2.787)
+2024-08-30T22:14:57.899-03:00  INFO 15251 --- [backend] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-30T22:14:57.900-03:00  INFO 15251 --- [backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-30T22:14:57.900-03:00  INFO 15251 --- [backend] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
 Hibernate: select c1_0.id,c1_0.active,c1_0.cnpj,c1_0.name,c1_0.phone from clinics c1_0 where c1_0.id=? and c1_0.active
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
